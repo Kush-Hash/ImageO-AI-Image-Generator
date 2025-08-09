@@ -1,0 +1,11 @@
+.placeholder-style {
+    color: black;
+    font-weight: 400;
+}
+
+.background-style {
+    background-image: url(../assets/blob_bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
