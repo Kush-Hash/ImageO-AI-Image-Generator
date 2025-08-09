@@ -13,7 +13,8 @@ const AppContextProvider = (props) => {
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [credit, setCredit] = useState(0);
 
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    // FIXED: Added quotes and correct URL format
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
     const navigate = useNavigate();
 
     //loading the credits 
@@ -60,7 +61,6 @@ const AppContextProvider = (props) => {
         }
     }
 
-
     //for logout
     const logout = () => {
         localStorage.removeItem('token');
@@ -97,4 +97,3 @@ const AppContextProvider = (props) => {
     );
 }
 export default AppContextProvider;
-// This file creates a context for the application, allowing components to share state easily.
