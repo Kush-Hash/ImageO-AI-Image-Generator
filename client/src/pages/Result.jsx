@@ -30,7 +30,7 @@ const Result = () => {
         if (!image || !inputText) return;
         const link = document.createElement('a');
         link.href = image;
-        link.download = `${inputText.replace(/\s+/g, '_')}.png`; // filename from prompt
+        link.download = `${inputText.replace(/\s+/g, '_')}.png`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -71,7 +71,7 @@ const Result = () => {
                         ease: 'easeInOut',
                     }}
                 >
-                    {/* BLUE AURA (only during loading) */}
+                    {/* BLUE AURA */}
                     {loading && (
                         <motion.div
                             className="absolute inset-0 -z-10 rounded-full bg-blue-400/40 blur-3xl"
@@ -106,35 +106,47 @@ const Result = () => {
                     </p>
                 )}
 
-                {/* INPUT BLOCK */}
+                {/* INPUT BLOCK (MODIFIED ONLY) */}
                 {!isImageLoaded && !loading && (
-                    <div className="flex w-90 sm:w-140 bg-white text-black text-base mt-5 p-0.5 rounded-full border-2 border-black shadow-lg">
-                        <input
-                            type="text"
+                    <div className="flex w-90 sm:w-140 mt-5 gap-3 items-stretch">
+                        {/* TEXTAREA */}
+                        <textarea
                             placeholder="Describe what you want to generate"
-                            className="flex-1 bg-transparent ml-2 sm:ml-8 w-full max-sm:w-15 placeholder-style outline-none text-sm sm:text-lg"
+                            className="flex-1 bg-white text-black placeholder-style outline-none 
+            text-sm sm:text-lg p-4 rounded-2xl border-2 border-black shadow-lg 
+            resize-none min-h-[64px]"
+                            rows={2}
                             onChange={(e) => setInputText(e.target.value)}
                             value={inputText}
                         />
+
+                        {/* GENERATE BUTTON */}
                         <button
                             type="submit"
-                            className="bg-zinc-900 px-4 sm:px-16 py-3 rounded-full text-white cursor-pointer"
+                            className="bg-white text-black border-2 border-black 
+            px-6 sm:px-10 rounded-2xl font-medium 
+            hover:bg-black hover:text-white hover:border-white transition-all"
                         >
                             Generate
                         </button>
                     </div>
                 )}
 
+
                 {/* ACTION BUTTONS */}
                 {isImageLoaded && !loading && (
                     <div className="flex gap-2 flex-wrap justify-center items-center text-white text-sm p-0.5 mt-5 rounded-full">
                         <p
                             className="bg-white text-black px-8 py-3 rounded-full cursor-pointer font-medium hover:scale-[1.01] border-2 border-black"
-                            onClick={() => setIsImageLoaded(false)}
+                            onClick={() => {
+                                setIsImageLoaded(false);
+                                setInputText('');
+                            }}
                         >
                             Generate Another
                         </p>
                         <button
+                            type="button"
                             onClick={handleDownload}
                             className="bg-blue-500 text-white px-8 py-3 rounded-full cursor-pointer font-medium hover:scale-[1.01]"
                         >

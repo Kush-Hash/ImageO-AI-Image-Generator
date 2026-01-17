@@ -12,25 +12,10 @@ const Carousal = () => {
         target: scrollRef,
         offset: ['start start', 'end start']
     });
-
-    // // Detect screen size
-    // useEffect(() => {
-    //     const checkMobile = () => {
-    //         setIsMobile(window.innerWidth <= 768);
-    //     };
-
-    //     checkMobile();
-    //     window.addEventListener('resize', checkMobile);
-    //     return () => window.removeEventListener('resize', checkMobile);
-    // }, []);
-
     const x = useTransform(
         scrollYProgress,
         [0, 0.08, 0.8, 1],
         ['0%', '0%', '-55%', '-55%']
-        // isMobile
-        //     ? ['0%', '0%', '-55%', '-55%']
-        //     : ['0%', '0%', '-55%', '-55%']
     );
 
     const images = [
@@ -45,9 +30,6 @@ const Carousal = () => {
         <div className="carousal" ref={scrollRef}>
             {/* Background */}
             <motion.div className="carousel-background relative">
-                <p className="text-2xl sm:text-4xl text-yellow-300 font-bold text-outline absolute bottom-20 left-[10vw] lg:top-10 lg:bottom-auto lg:left-[30vw]">
-                    Images created with Imagify
-                </p>
                 <img
                     src={assets.blob_scene}
                     alt="Carousel Background"
