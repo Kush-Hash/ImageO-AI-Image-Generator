@@ -1,4 +1,3 @@
-import logo from './logo.svg'
 import logo_icon from './logo_icon.svg'
 import facebook_icon from './facebook_icon.svg'
 import instagram_icon from './instagram_icon.svg'
@@ -19,14 +18,9 @@ import star_group from './star_group.png'
 import credit_star from './credit_star.svg'
 import profile_icon from './profile_icon.png'
 import logo2 from './logo2.png'
-import poly from './low-poly-grid-haikei.svg'
-import stacked from './stacked.svg'
-import blob from './blob.svg'
 import blob_scene from './blob_scene.svg'
-import blob_bg from './blob_bg.svg'
 
 export const assets = {
-  logo,
   logo_icon,
   facebook_icon,
   instagram_icon,
@@ -42,11 +36,8 @@ export const assets = {
   credit_star,
   profile_icon,
   logo2,
-  poly,
-  stacked,
-  blob,
   blob_scene,
-  blob_bg,
+
 }
 
 export const stepsData = [
